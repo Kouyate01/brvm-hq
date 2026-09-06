@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar"; // Import direct depuis le dossier app/components
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +16,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr">
       <body suppressHydrationWarning className={`${inter.className} bg-[#F8F7F4] text-[#1A1A1A] min-h-screen font-sans selection:bg-[#C86A53] selection:text-white flex flex-col`}>
         
-        {/* Barre de navigation responsive */}
+        {/* Barre de navigation */}
         <Navbar />
 
         {/* Contenu principal de la page */}
-        <main className="max-w-[1400px] mx-auto px-8 pb-32 w-full flex-1">
+        <main className="max-w-[1400px] mx-auto px-8 py-10 pb-32 w-full flex-1">
           {children}
         </main>
 
@@ -28,10 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="bg-[#1C1A17] text-white pt-16 pb-8 px-8 w-full mt-auto">
           <div className="max-w-[1400px] mx-auto">
             
-            {/* Section Haut du Footer */}
             <div className="flex flex-col md:flex-row justify-between mb-16 gap-10">
-              
-              {/* Logo & Slogan */}
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-3xl">📈</span>
@@ -40,7 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p className="text-[#A3A3A3] italic font-serif">Quelle action, pour quel rendement, et comment.</p>
               </div>
 
-              {/* Liens (2 colonnes) */}
               <div className="flex gap-16 md:gap-24">
                 <div className="flex flex-col gap-4">
                   <h4 className="text-[#737373] text-xs font-bold uppercase tracking-widest mb-2">Le Hub</h4>
@@ -58,7 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
 
-            {/* Section Bas du Footer (Copyright) */}
             <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[13px] text-[#737373]">
               <p>© 2026 BRVM Hub, média pratique.</p>
               <p className="mt-4 md:mt-0">By Movibes</p>
