@@ -15,18 +15,17 @@ export default function RejoindrePage() {
     setLoading(true);
 
     try {
-      // Envoi des données vers Supabase
-      const { data, error } = await supabase
+      // Envoi des données vers Supabase (SANS le .select() à la fin)
+      const { error } = await supabase
         .from('subscribers')
-        .insert([{ prenom, email, profil }])
-        .select();
+        .insert([{ prenom, email, profil }]);
 
       if (error) {
         console.error("Détail de l'erreur Supabase :", error);
         alert("Erreur Supabase : " + error.message);
         setLoading(false);
       } else {
-        console.log("Succès :", data);
+        console.log("Succès : Inscription réussie");
         setIsSubmitted(true);
       }
     } catch (err) {
