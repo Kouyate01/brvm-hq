@@ -18,7 +18,7 @@ export default function Home() {
         </h1>
         
         <p className="mt-8 text-lg text-gray-600 max-w-xl leading-relaxed font-medium">
-          Comprends la bourse. Investis mieux. Le média pratique qui t'aide à choisir le bon intermédiaire, à bien investir et à toucher tes dividendes. Sans jargon, même si tu débutes.
+          Comprends la bourse. Investis mieux. La plateforme qui t'aide à choisir le bon intermédiaire, à bien investir et à toucher tes dividendes. Sans jargon, même si tu débutes.
         </p>
         
         <div className="flex flex-wrap gap-4 mt-10">
