@@ -5,10 +5,10 @@ import { DefaultChatTransport, isToolUIPart } from "ai"
 import { Bot, Send, Sparkles, Square, X } from "lucide-react"
 import { useEffect, useMemo, useRef, useState } from "react"
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { Badge } from "./ui/badge"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { ScrollArea } from "./ui/scroll-area"
 import { cn } from "@/lib/utils"
 
 const QUICK_PROMPTS = [
@@ -204,7 +204,7 @@ export function CopilotChat({ open, onClose }: CopilotChatProps) {
 
           <form
             className="flex items-center gap-2"
-            onSubmit={(event) => {
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
               event.preventDefault()
               submitPrompt(input || "")
             }}
