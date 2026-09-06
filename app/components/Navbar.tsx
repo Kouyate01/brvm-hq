@@ -15,7 +15,7 @@ export default function Navbar() {
           <span className="text-3xl">📈</span> BRVM Hub
         </Link>
         
-        {/* Menu PC / Desktop (Masqué sur mobile grâce à 'hidden md:flex') */}
+        {/* Menu PC / Desktop (Affiché sur PC, masqué sur mobile via 'hidden md:flex') */}
         <div className="hidden md:flex items-center gap-8 font-medium text-sm text-[#1A1A1A]">
           <Link href="/guide" className="hover:text-gray-500 transition">Les Bases</Link>
           <Link href="/sgi" className="hover:text-gray-500 transition">SGI</Link>
@@ -25,29 +25,21 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Bouton Hamburger Mobile (Visible UNIQUEMENT sur mobile grâce à 'md:hidden') */}
+        {/* Bouton Hamburger Mobile (Affiché UNIQUEMENT sur mobile via 'md:hidden') */}
         <button 
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex items-center justify-center p-2.5 rounded-xl bg-gray-200/80 text-black focus:outline-none"
+          className="md:hidden flex items-center justify-center p-2.5 rounded-xl bg-[#1A1A1A] text-white font-bold active:scale-95 transition shadow-md"
           aria-label="Menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isOpen ? (
-              // Croix de fermeture
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              // Icône 3 barres (Hamburger)
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          {isOpen ? "Fermer X" : "Menu ☰"}
         </button>
 
       </div>
 
-      {/* Menu déroulant Mobile (S'ouvre et se ferme au clic sur le hamburger) */}
+      {/* Menu déroulant Mobile (Affiché uniquement sur mobile) */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[#F8F7F4] border-b border-gray-200 shadow-2xl p-6 flex flex-col gap-5 md:hidden z-50 rounded-b-[2rem] animate-in fade-in duration-200">
+        <div className="absolute top-full left-0 right-0 bg-[#F8F7F4] border-b border-gray-200 shadow-2xl p-6 flex flex-col gap-5 md:hidden z-50 rounded-b-[2rem]">
           <Link 
             href="/guide" 
             onClick={() => setIsOpen(false)}
