@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import Navbar from "./components/Navbar"; // Import direct depuis le dossier app/components
+import Navbar from "./components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,21 +11,27 @@ export const metadata: Metadata = {
   description: "La plateforme pour investir à la BRVM.",
 };
 
+// CETTE LIGNE INDIQUE AU TÉLÉPHONE SA VRAIE LARGEUR MOBILE :
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body suppressHydrationWarning className={`${inter.className} bg-[#F8F7F4] text-[#1A1A1A] min-h-screen font-sans selection:bg-[#C86A53] selection:text-white flex flex-col`}>
         
-        {/* Barre de navigation */}
+        {/* Navigation Mobile & Desktop */}
         <Navbar />
 
-        {/* Contenu principal de la page */}
-        <main className="max-w-[1400px] mx-auto px-8 py-10 pb-32 w-full flex-1">
+        {/* Contenu principal */}
+        <main className="max-w-[1400px] mx-auto px-6 md:px-8 py-8 pb-32 w-full flex-1">
           {children}
         </main>
 
-        {/* FOOTER SOMBRE */}
-        <footer className="bg-[#1C1A17] text-white pt-16 pb-8 px-8 w-full mt-auto">
+        {/* Footer */}
+        <footer className="bg-[#1C1A17] text-white pt-16 pb-8 px-6 md:px-8 w-full mt-auto">
           <div className="max-w-[1400px] mx-auto">
             
             <div className="flex flex-col md:flex-row justify-between mb-16 gap-10">
@@ -37,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <p className="text-[#A3A3A3] italic font-serif">Quelle action, pour quel rendement, et comment.</p>
               </div>
 
-              <div className="flex gap-16 md:gap-24">
+              <div className="flex gap-12 md:gap-24">
                 <div className="flex flex-col gap-4">
                   <h4 className="text-[#737373] text-xs font-bold uppercase tracking-widest mb-2">Le Hub</h4>
                   <Link href="/actions" className="text-[15px] font-medium hover:text-[#C86A53] transition">Actions Phares</Link>

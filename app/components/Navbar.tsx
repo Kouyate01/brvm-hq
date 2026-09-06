@@ -7,16 +7,16 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full bg-[#F8F7F4] border-b border-gray-200/60 sticky top-0 z-50">
-      <nav className="flex items-center justify-between px-6 md:px-8 py-4 max-w-[1400px] mx-auto w-full">
+    <header className="w-full bg-[#F8F7F4] border-b border-gray-200/80 sticky top-0 z-50">
+      <div className="flex items-center justify-between px-6 md:px-8 py-4 max-w-[1400px] mx-auto w-full">
         
         {/* Logo */}
         <Link href="/" className="text-2xl font-black tracking-tighter flex items-center gap-2 text-[#1A1A1A]">
           <span className="text-3xl">📈</span> BRVM Hub
         </Link>
         
-        {/* Liens Desktop (cachés sur mobile avec hidden md:flex) */}
-        <div className="hidden md:flex items-center gap-8 font-medium text-sm">
+        {/* Liens Desktop (masqués sur mobile) */}
+        <div className="hidden md:flex items-center gap-8 font-medium text-sm text-[#1A1A1A]">
           <Link href="/guide" className="hover:text-gray-500 transition">Les Bases</Link>
           <Link href="/sgi" className="hover:text-gray-500 transition">SGI</Link>
           <Link href="/actions" className="hover:text-gray-500 transition">Actions</Link>
@@ -25,55 +25,64 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Bouton Hamburger Mobile (Visible uniquement sur mobile avec md:hidden) */}
+        {/* Bouton Hamburger Mobile (affiché UNIQUEMENT sur mobile) */}
         <button 
+          type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex items-center justify-center p-2.5 rounded-xl bg-gray-200 text-black focus:outline-none"
+          className="md:hidden flex items-center justify-center p-2 rounded-xl bg-gray-200 text-black active:scale-95 transition"
           aria-label="Menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          {isOpen ? (
+            // Icône Croix (Fermer)
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            // Icône 3 barres (Hamburger)
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          )}
         </button>
 
-        {/* Menu Déroulant Mobile (S'affiche si isOpen est true) */}
-        {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-[#F8F7F4] border-b border-gray-200 shadow-2xl p-6 flex flex-col gap-5 md:hidden z-50 rounded-b-[2rem]">
-            <Link 
-              href="/guide" 
-              onClick={() => setIsOpen(false)}
-              className="font-bold text-lg text-gray-800 hover:text-black transition"
-            >
-              Les Bases
-            </Link>
-            <Link 
-              href="/sgi" 
-              onClick={() => setIsOpen(false)}
-              className="font-bold text-lg text-gray-800 hover:text-black transition"
-            >
-              SGI
-            </Link>
-            <Link 
-              href="/actions" 
-              onClick={() => setIsOpen(false)}
-              className="font-bold text-lg text-gray-800 hover:text-black transition"
-            >
-              Actions
-            </Link>
-            <Link 
-              href="/rejoindre" 
-              onClick={() => setIsOpen(false)}
-              className="bg-[#1A1A1A] text-white text-center py-3.5 rounded-full font-bold shadow-md hover:bg-gray-800 transition mt-2"
-            >
-              Rejoindre la liste
-            </Link>
-          </div>
-        )}
-      </nav>
+      </div>
+
+      {/* Menu déroulant Mobile */}
+      {isOpen && (
+        <div className="md:hidden bg-[#F8F7F4] border-t border-gray-200 px-6 py-6 flex flex-col gap-4 shadow-xl animate-in fade-in duration-200">
+          <Link 
+            href="/guide" 
+            onClick={() => setIsOpen(false)}
+            className="font-bold text-lg text-gray-800 hover:text-black py-1"
+          >
+            Les Bases
+          </Link>
+          <Link 
+            href="/sgi" 
+            onClick={() => setIsOpen(false)}
+            className="font-bold text-lg text-gray-800 hover:text-black py-1"
+          >
+            SGI
+          </Link>
+          <Link 
+            href="/actions" 
+            onClick={() => setIsOpen(false)}
+            className="font-bold text-lg text-gray-800 hover:text-black py-1"
+          >
+            Actions
+          </Link>
+          <Link 
+            href="/rejoindre" 
+            onClick={() => setIsOpen(false)}
+            className="bg-[#1A1A1A] text-white text-center py-3.5 rounded-full font-bold shadow-md hover:bg-gray-800 transition mt-2"
+          >
+            Rejoindre la liste
+          </Link>
+        </div>
+      )}
     </header>
   );
 }
