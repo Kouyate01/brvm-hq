@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/guide" className="hover:text-gray-500 transition">Les Bases</Link>
             <Link href="/sgi" className="hover:text-gray-500 transition">SGI</Link>
             <Link href="/actions" className="hover:text-gray-500 transition">Actions</Link>
-            <Link href="#" className="bg-[#1A1A1A] text-white px-5 py-2.5 rounded-full hover:bg-gray-800 transition">
+            <Link href="/rejoindre" className="bg-[#1A1A1A] text-white px-5 py-2.5 rounded-full hover:bg-gray-800 transition">
               Rejoindre la liste
             </Link>
           </div>
@@ -65,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <h4 className="text-[#737373] text-xs font-bold uppercase tracking-widest mb-2">Aller plus loin</h4>
                   <Link href="#" className="text-[15px] font-medium hover:text-[#C86A53] transition">La formation</Link>
                   <Link href="#" className="text-[15px] font-medium hover:text-[#C86A53] transition">À propos</Link>
-                  <Link href="#" className="text-[15px] font-medium hover:text-[#C86A53] transition">Rejoindre la liste</Link>
+                  <Link href="/rejoindre" className="text-[15px] font-medium hover:text-[#C86A53] transition">Rejoindre la liste</Link>
                 </div>
               </div>
             </div>
