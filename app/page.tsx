@@ -21,17 +21,18 @@ export default function Home() {
           Comprends la bourse. Investis mieux. La plateforme qui t'aide à choisir le bon intermédiaire, à bien investir et à toucher tes dividendes. Sans jargon, même si tu débutes.
         </p>
         
-        <div className="flex flex-wrap gap-4 mt-10">
-          <Link href="/guide" className="bg-[#1A1A1A] text-white rounded-full px-8 py-3.5 font-medium text-sm hover:bg-gray-800 transition">
+        {/* BOUTON UNIQUE ET RESPONSIVE */}
+        <div className="flex justify-center md:justify-start mt-10">
+          <Link 
+            href="/guide" 
+            className="w-full sm:w-auto bg-[#1A1A1A] text-white rounded-full px-10 py-4 font-bold text-center hover:bg-gray-800 transition shadow-md active:scale-95 text-sm"
+          >
             Trouver mon action
-          </Link>
-          <Link href="/sgi" className="border border-[#1A1A1A] text-[#1A1A1A] rounded-full px-8 py-3.5 font-medium text-sm hover:bg-gray-100 transition">
-            Voir la formation
           </Link>
         </div>
       </div>
 
-      {/* 2. SECTION BOUTONS PILULES (What do you need...) */}
+      {/* 2. SECTION BOUTONS PILULES (Pourquoi veux-tu investir...) */}
       <div className="mt-32">
         <div className="flex flex-col md:flex-row md:items-center gap-8 mb-10">
           <h2 className="text-4xl font-black tracking-tight max-w-xs leading-tight">
